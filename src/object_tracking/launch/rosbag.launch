@@ -1,0 +1,9 @@
+<launch>
+    <node
+    pkg = "rosbag"
+    type = "play"
+    name = "play1"
+    output = "screen"
+    args = "/home/wang/bag/stopOnePerson_2022-01-14-00-30-42.bag"
+    />
+</launch>

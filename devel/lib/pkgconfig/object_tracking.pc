@@ -1,0 +1,8 @@
+prefix=/home/wang/2.24/object_tracking2/devel
+
+Name: object_tracking
+Description: Description of object_tracking
+Version: 0.0.0
+Cflags: -I/home/wang/2.24/object_tracking2/devel/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs message_runtime

@@ -1,0 +1,49 @@
+<launch>
+  <!-- 点云分割 -->
+    <node
+    pkg = "object_tracking"
+    type = "object_tracking_indoor_node"
+    name = "object_tracking_node"
+    output = "screen">
+    
+    <param name = "num_iter" value = "10"/>
+    <param name = "num_LPR" value = "1500"/>
+    <param name = "thres_seeds" value = "0.3"/>
+    <param name = "thres_dist" value = "0.2"/>
+    <param name = "max_cluster_dist" value = "0.2"/>
+    <param name = "max_cluster_size" value = "200"/>
+    <param name = "min_cluster_size" value = "50"/>
+    <param name = "topic_name_sub_pointCloud" value = "/velodyne_points"/>
+    <param name = "topic_name_pub_ground_pointCloud" value = "/object_tracking/ground_pointCloud"/>
+    <param name = "topic_name_pub_no_ground_pointCloud" value = "/object_tracking/no_ground_pointCloud"/>
+    <param name = "topic_name_pub_object" value = "/object_tracking/object"/>
+    <param name = "topic_name_pub_bounding_box" value = "/object_tracking/bounding_box"/>
+    <param name = "topic_name_pub_marker" value = "/object_tracking/marker"/>
+    <param name = "topic_name_pub_no_background_pointCloud" value = "/object_tracking/no_background_pointCloud"/>
+    <param name = "topic_name_pub_static_pointCloud" value = "/object_tracking/static_pointCloud"/>
+    </node>
+
+    <!-- 可视化 -->
+    <node
+    pkg = "rviz"
+    type = "rviz"
+    name = "rviz"
+    args = "-d $(find object_tracking)/config/object_tracking_indoor_config.rviz"
+    />
+<!-- launch-prefix = "xterm -e" -->
+    <node
+    pkg = "rosbag"
+    type = "play"
+    name = "play1"
+    output = "screen"
+    args = "-d 10 /home/wang/2.20/object_tracking2/stop_2022-02-20-20-12-44.bag"
+    />
+    <!-- /home/wang/2.20/object_tracking2/stnostop_2022-02-20-20-14-12.bag -->
+    <!-- /home/seu/object_tracking/object_tracking2/stop_2022-02-20-20-12-44.bag -->
+<!-- stopPerson_2022-01-14-00-32-45 -->
+<!-- stopOnePerson_2022-01-14-00-30-42 -->
+<!-- gensuizuai_2022-01-14-00-41-25 -->
+<!-- dongPerson_2022-01-14-00-34-33 -->
+<!-- zhixian_2022-01-14-00-44-11 -->
+
+</launch>

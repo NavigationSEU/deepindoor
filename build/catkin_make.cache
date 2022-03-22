@@ -1,0 +1,2 @@
+object_tracking
+-DCATKIN_DEVEL_PREFIX=/home/wang/2.24/object_tracking2/devel -DCMAKE_INSTALL_PREFIX=/home/wang/2.24/object_tracking2/install -G Unix Makefiles
